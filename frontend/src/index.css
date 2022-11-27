@@ -1,0 +1,457 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Secular One';
+  height: 100vh;
+  background-color: rgb(240, 240, 240);
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+p {
+  line-height: 1.7;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  line-height: 2.2;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 60px;
+}
+
+.header ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header ul li{
+  margin-left: 20px;
+}
+
+.header ul li a{
+  display: flex;
+  align-items: center;
+}
+
+.header ul li a:hover {
+  color: #777;
+}
+
+.btn2 :hover {
+  color:#777
+}
+
+.logo a:hover {
+  color:#777
+}
+
+.logo button:hover {
+  color:#777
+}
+
+.header ul li a svg {
+  margin-right: 5px;
+}
+
+.profile-text {
+  color: #ffffff;
+  cursor: pointer;
+  background-color: #00ccbb;
+  padding: 0.25rem 7rem;
+  border-radius: 1rem;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+.heading p {
+  color: #828282;
+}
+
+form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.form-group label {
+  text-align: left;
+  display: block;
+  margin: 0 0 5px 3px;
+}
+
+.btn,
+.btn2 button{
+  font-family: 'Secular One';
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn svg {
+  margin-right: 8px;
+}
+
+.btn-reverse {
+  background: #fff;
+  color: #000;
+}
+
+.btn-block {
+  background: #00ccbb;
+  color:rgb(255, 255, 255);
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.btn-sm {
+  padding: 5px 15px;
+  font-size: 13px;
+}
+
+.btn-back {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+
+.pageHeader {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.profileHeader {
+  font-size: rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+.profileDetailsHeader {
+  margin-bottom: 25px;
+  
+}
+
+.personalDetailsText {
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  
+}
+
+.changePersonalDetails {
+  cursor: pointer;
+  font-weight: 600;
+  color: #00ccbb;
+  margin-top: 25px;
+}
+
+.profileName,
+.profileEmail,
+.profileEmailActive,
+.profileNameActive {
+  all: unset;
+  margin: 0.3rem 0;
+  font-weight: 600;
+  width: 100%;
+}
+.profileNameActive {
+  background-color: rgba(44, 44, 44, 0.1);
+}
+
+.profileEmailActive {
+  background-color: rgba(44, 44, 44, 0.1);
+}
+
+.profileEmail,
+.profileEmailActive {
+  font-weight: 500;
+}
+
+.createListing {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 0.25rem 1rem;
+  box-shadow: rgba(0, 0, 0, 0.2);
+  margin:auto;
+  margin-top: 25px;
+  font-weight: 600;
+  max-width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formLabel {
+  font-weight: 600;
+  margin-top: 1rem;
+  display: block;
+}
+
+.formButtons {
+  margin-top: 1rem;
+}
+
+
+.inputOne {
+  float: left;
+  margin-right: 20px;
+}
+
+.inputTwo {
+  float: left;
+}
+
+.formInputSmall {
+  display: block;
+}
+
+.formButton,
+.formInputName,
+.formInputSmall,
+.formInputFile,
+.formButtonActive {
+  padding: 0.9rem 3rem;
+  background-color: #ffffff;
+  font-weight: 600;
+  border-radius: 1rem;
+  font-size: 1rem;
+  margin: 0.5rem 0.5rem 0 0;
+  font-family: 'Secular One';
+  border: none;
+}
+
+.formButtonActive {
+  background-color: #00ccbb;
+  color: #ffffff;
+}
+
+.images {
+  margin:auto;
+}
+
+/* .formInputFile {
+  visibility: hidden;
+} */
+
+.formImages {
+  background-color: #00ccbb;
+  color: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+}
+
+.createListingButton {
+  margin-top: 5rem;
+}
+.primaryButton {
+  cursor: pointer;
+  background: #00ccbb;
+  border-radius: 1rem;
+  padding: 0.85rem 2rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.25rem;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-family: 'Secular One';
+
+}
+
+.formInputFile {
+  width: 80%;
+}
+.formInputFile::-webkit-file-upload-button {
+  background-color: #00ccbb;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+}
+
+.loadingSpinnerContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingSpinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #000 transparent #555 transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+.categoryListings {
+  padding: 0;
+}
+
+.categoryListing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.categoryListingLink {
+  display: contents;
+}
+
+.categoryListingImg {
+  width: 100px;
+  height: 30%;
+  border-radius: 1.5rem;
+  object-fit: cover;
+}
+@media (min-width: 1024px) {
+  .categoryListingImg {
+    width: 160px;
+    height: 10%;
+
+  }
+}
+
+.categoryListingDetails {
+  width: 65%;
+}
+@media (min-width: 1024px) {
+  .categoryListingDetails {
+    width: 79%;
+  }
+}
+
+.categoryListingName {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.listingText {
+  margin-top: 3rem;
+  font-weight: 600;
+}
+
+.lisitingsList {
+  padding: 0;
+}
+
+.swiperSlideDiv {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.copyLinkDiv {
+  cursor: pointer;
+  position: fixed;
+  top: 20%;
+  right: 25%;
+  z-index: 2;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkCopied {
+  position: fixed;
+  top: 23%;
+  right: 25%;
+  z-index: 2;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+
+.listingName {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.removeIcon {
+  cursor: pointer;
+}
+.editIcon {
+  cursor: pointer;
+  
+}
