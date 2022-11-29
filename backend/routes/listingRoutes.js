@@ -1,12 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const {getListingsUser, createListingUser, getListingUser, deleteListingUser, updateListingUser} = require('../controllers/listingController')
+const {getListings, getListingsUser, createListingUser, getListingUser, deleteListingUser, updateListingUser} = require('../controllers/listingController')
 
 const {protect} = require('../middleware/authMiddleware')
 const {multer, sendUploadToGCS} = require('../middleware/uploadMiddleware')
 
 
-router.route('/').get(protect, getListingsUser).post(protect, createListingUser)
+router.route('/').get(getListings).post(protect, createListingUser)
+
+router.route('/my-listings').get(protect, getListingsUser)
 
 router.route('/:id').get(protect, getListingUser).delete(protect, deleteListingUser).put(protect, updateListingUser)
 

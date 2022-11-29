@@ -1,13 +1,12 @@
-import { useState, useEffect } from "react"
-import {useSelector, useDispatch} from 'react-redux'
+import { useState } from "react"
+import { useDispatch, useSelector } from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-toastify'
-import {createListing, reset} from '../features/listings/listingSlice'
-import Spinner from '../components/Spinner'
+import {createListing} from '../features/listings/listingSlice'
+import Spinner from "../components/Spinner"
 
 function CreateListing() {
-    const {isLoading, isError, isSuccess, message} = useSelector((state) => state.listings)
-
+    const {listings} = useSelector(state => state.listings)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -17,26 +16,17 @@ function CreateListing() {
     const [age, setAge] = useState(1)
     const [images, setImages] = useState({})
 
-    useEffect(() => {
-        if(isError) {
-            toast.error(message)
-        }
-
-        if(isSuccess) {
-            dispatch(reset())
-            navigate ('/listings')
-        }
-
-        dispatch(reset())
-    }, [dispatch, isError, isSuccess, navigate, message])
-
     const onSubmit = (e) => {
         e.preventDefault()
         if(images.length > 4){
             toast.error('ניתן להעלות מקסימום ארבע תמונות')
             return
         }
-        dispatch(createListing({name, gender, race, age, images}))
+        dispatch(createListing({name, gender, race, age, images})).unwrap().then(() => {
+            navigate('/listings')
+            toast.success('הכלב פורסם בהצלחה')
+        })
+        .catch(toast.error)
 
         
     }
@@ -46,7 +36,7 @@ function CreateListing() {
         
     }
 
-    if(isLoading) {
+    if(!listings) {
         return <Spinner />
     }
 

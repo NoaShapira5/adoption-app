@@ -3,8 +3,8 @@ const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
 const Listing = require('../models/listingModal')
 
-// @desc Get user listings
-// @route GET /api/listings 
+// @desc Get user's listings
+// @route GET /api/listings/my-listings 
 // @access Private
 const getListingsUser = asyncHandler(async (req, res) => {
     // Get user using the id in the JWT
@@ -20,8 +20,18 @@ const getListingsUser = asyncHandler(async (req, res) => {
     res.status(200).json(listings)
 })
 
+// @desc Get listings
+// @route GET /api/listings 
+// @access Public
+const getListings = asyncHandler(async (req, res) => {
+
+    const listings = await Listing.find({})
+
+    res.status(200).json(listings)
+})
+
 // @desc Get user listing
-// @route GET /api/listings/:id 
+// @route GET /api/listings/listing/:id 
 // @access Private
 const getListingUser = asyncHandler(async (req, res) => {
     // Get user using the id in the JWT
@@ -36,7 +46,7 @@ const getListingUser = asyncHandler(async (req, res) => {
 
     if(!listing) {
         res.status(404)
-        throw new Error('Ticket not found')
+        throw new Error('Listing not found')
     }
 
     if(listing.user.toString() !== req.user.id) {
@@ -134,6 +144,7 @@ const updateListingUser = asyncHandler(async (req, res) => {
 })
 
 module.exports = {
+    getListings,
     getListingsUser,
     getListingUser,
     createListingUser,

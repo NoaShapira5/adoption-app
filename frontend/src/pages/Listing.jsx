@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
-import {getListing, reset} from '../features/listings/listingSlice'
+import {getListing} from '../features/listings/listingSlice'
 import Spinner from "../components/Spinner"
 import { useParams } from "react-router-dom"
 import {toast} from 'react-toastify'
@@ -12,26 +12,20 @@ import {FaCopy} from 'react-icons/fa'
 function Listing() {
     const [shareLinkCopied, setShareLinkCopied] = useState(false)
 
-    const {listing, isLoading, isSuccess, isError, message} = useSelector(state => state.listings)
+    const {listing} = useSelector(state => state.listings)
 
     const dispatch = useDispatch()
 
     const {listingId} = useParams()
 
     useEffect(() => {
-        if(isError) {
-            toast.error(message)
-        }
-        dispatch(getListing(listingId))
-        // eslint-disable-next-line
-    }, [isError, message, listingId])
+        dispatch(getListing(listingId)).unwrap().catch(toast.error)
+    }, [dispatch, listingId])
 
-    if(isLoading) {
+    if(!listing) {
         return <Spinner />
     }
-    if(isError) {
-        return <h3>Somthings Went Wrong</h3>
-    }
+
   return (
     <main>
         <Swiper

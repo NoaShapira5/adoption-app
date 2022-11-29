@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
-import Listings from './pages/Listings';
+import ListingsUser from './pages/ListingsUser';
 import CreateListing from './pages/CreateListing';
 import NoPermission from './pages/NoPermission';
 import Header from './components/Header';
@@ -34,7 +34,7 @@ function App() {
               <Route path='/create-listing' element={<CreateListing />} />
             </Route>
             <Route to='/listings' element={<PrivateRoute />}>
-              <Route path='/listings' element={<Listings />} />
+              <Route path='/listings' element={<ListingsUser />} />
             </Route>
             <Route to='/listings/:listingId' element={<PrivateRoute />}>
               <Route path='/listings/:listingId' element={<Listing />} />

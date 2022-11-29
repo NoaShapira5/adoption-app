@@ -6,9 +6,7 @@ function ListingItem({listing, id, onDelete, onEdit}) {
   return (
     <li className="categoryListing">
         <Link to={`/listings/${id}`} className="categoryListingLink">
-            <div className="img">
-                <img src={listing.images[0]} alt={listing.name} className="categoryListingImg" />
-            </div>
+            <img src={listing.images[0]} alt={listing.name} className="categoryListingImg" />
             <div className="categoryListingDetails">
                 <p className="categoryListingName">{listing.name}</p>
                 <p className='categoryListingAge'>גיל: {listing.age}</p>
@@ -16,8 +14,8 @@ function ListingItem({listing, id, onDelete, onEdit}) {
                 <p className="categoryListingGender">מין: {listing.gender}</p>
             </div>
         </Link>
-        <MdDelete className='removeIcon' fill='rgb(231, 76, 60)' onClick={() => onDelete(id)} />
-        <FaEdit className='editIcon' onClick={() => onEdit(id)}/>
+        {onDelete && (<MdDelete className='removeIcon' fill='rgb(231, 76, 60)' onClick={() => onDelete(id)} />)}
+        {onEdit && (<FaEdit className='editIcon' onClick={() => onEdit(id)}/>)}
       
     </li>
   )

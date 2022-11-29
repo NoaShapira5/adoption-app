@@ -1,13 +1,10 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import listingService from './listingService'
+import { extractErrorMessage } from '../../utils'
 
 const initialState = {
-    listings: [],
-    listing: {},
-    isError: false,
-    isSuccess: false,
-    isLoading: false,
-    message: ''
+    listings: null,
+    listing: null
 }
 
 // Create new listing
@@ -16,19 +13,26 @@ export const createListing = createAsyncThunk('listing/create', async (listingDa
         const token = thunkAPI.getState().auth.user.token
         return await listingService.createListing(listingData, token)
     } catch (error) {
-        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
-        return thunkAPI.rejectWithValue(message)
+        return thunkAPI.rejectWithValue(extractErrorMessage(error))
     }
 })
 
 // get listings
-export const getListings = createAsyncThunk('listing/get', async (_, thunkAPI) => {
+export const getListings = createAsyncThunk('listing/getAll', async (_, thunkAPI) => {
+    try {
+        return await listingService.getListings()
+    } catch (error) {
+        return thunkAPI.rejectWithValue(extractErrorMessage(error))
+    }
+})
+
+// get user's listings
+export const getListingsUser = createAsyncThunk('listing/get', async (_, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-        return await listingService.getListings(token)
+        return await listingService.getListingsUser(token)
     } catch (error) {
-        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
-        return thunkAPI.rejectWithValue(message)
+        return thunkAPI.rejectWithValue(extractErrorMessage(error))
     }
 })
 
@@ -38,8 +42,7 @@ export const getListing = createAsyncThunk('listing/getOne', async (listingId, t
         const token = thunkAPI.getState().auth.user.token
         return await listingService.getListing(listingId, token)
     } catch (error) {
-        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
-        return thunkAPI.rejectWithValue(message)
+        return thunkAPI.rejectWithValue(extractErrorMessage(error))
     }
 })
 
@@ -49,8 +52,7 @@ export const deleteListing = createAsyncThunk('listing/delete', async (listingId
         const token = thunkAPI.getState().auth.user.token
         return await listingService.deleteListing(listingId, token)
     } catch (error) {
-        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
-        return thunkAPI.rejectWithValue(message)
+        return thunkAPI.rejectWithValue(extractErrorMessage(error))
     }
 })
 
@@ -60,8 +62,7 @@ export const editListing = createAsyncThunk('listing/edit', async (listing, thun
         const token = thunkAPI.getState().auth.user.token
         return await listingService.editListing(listing, token)
     } catch (error) {
-        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
-        return thunkAPI.rejectWithValue(message)
+        return thunkAPI.rejectWithValue(extractErrorMessage(error))
     }
 })
 
@@ -69,73 +70,35 @@ export const editListing = createAsyncThunk('listing/edit', async (listing, thun
 export const listingSlice = createSlice({
     name: 'listing',
     initialState,
-    reducers: {
-        reset: (state) => initialState
-    },
     extraReducers: (builder) => {
         builder
-            .addCase(createListing.pending, (state) => {
-                state.isLoading = true
-            })
-            .addCase(createListing.fulfilled, (state) => {
-                state.isLoading = false
-                state.isSuccess = true
-            })
-            .addCase(createListing.rejected, (state, action) => {
-                state.isLoading = false
-                state.isError = true
-                state.message = action.payload
-            })
             .addCase(getListings.pending, (state) => {
-                state.isLoading = true
+                state.listing = null
             })
             .addCase(getListings.fulfilled, (state, action) => {
-                state.isLoading = false
-                state.isSuccess = true
                 state.listings = action.payload
             })
-            .addCase(getListings.rejected, (state, action) => {
-                state.isLoading = false
-                state.isError = true
-                state.message = action.payload
-            })
-            .addCase(getListing.pending, (state) => {
-                state.isLoading = true
-            })
             .addCase(getListing.fulfilled, (state, action) => {
-                state.isLoading = false
-                state.isSuccess = true
                 state.listing = action.payload
             })
-            .addCase(getListing.rejected, (state, action) => {
-                state.isLoading = false
-                state.isError = true
-                state.message = action.payload
+            .addCase(getListingsUser.pending, (state) => {
+                state.listing = null
+                state.listings = null
             })
-            .addCase(deleteListing.pending, (state) => {
-                state.isLoading = true
+            .addCase(getListingsUser.fulfilled, (state, action) => {
+                state.listings = action.payload
             })
             .addCase(deleteListing.fulfilled, (state, action) => {
-                state.isLoading = false
-                state.isSuccess = true
                 state.listings = state.listings.filter(listing => listing._id  !== action.payload._id)
             })
-            .addCase(deleteListing.rejected, (state, action) => {
-                state.isLoading = false
-                state.isError = true
-                state.message = action.payload
+            .addCase(editListing.fulfilled, (state, action) => {
+                state.listing = action.payload
+                state.listings = state.listings.map((listing) =>
+                  listing._id === action.payload._id ? action.payload : listing
+                )
             })
-            .addCase(editListing.pending, (state) => {
-                state.isLoading = true
-            })
-            .addCase(editListing.fulfilled, (state) => {
-                state.isLoading = false
-                state.isSuccess = true
-            })
-            .addCase(editListing.rejected, (state, action) => {
-                state.isLoading = false
-                state.isError = true
-                state.message = action.payload
+            .addCase(createListing.fulfilled, (state, action) => {
+                state.listings = [...state.listings, action.payload]
             })
             
             

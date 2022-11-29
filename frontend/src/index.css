@@ -179,6 +179,7 @@ form {
 .pageHeader {
   font-size: 2rem;
   font-weight: 800;
+  margin-bottom: auto;
 }
 
 .profileHeader {
@@ -358,6 +359,15 @@ form {
   animation: spin 1.2s linear infinite;
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .categoryListings {
   padding: 0;
 }
@@ -368,6 +378,11 @@ form {
   align-items: center;
   margin-bottom: 1rem;
   position: relative;
+  border-radius: 1.5rem;
+  border-style: solid;
+  border-color: #fff;
+  
+
 }
 
 .categoryListingLink {
@@ -375,15 +390,15 @@ form {
 }
 
 .categoryListingImg {
-  width: 100px;
-  height: 30%;
+  width:  170px;
+  height: 100%;
   border-radius: 1.5rem;
   object-fit: cover;
 }
 @media (min-width: 1024px) {
   .categoryListingImg {
-    width: 160px;
-    height: 10%;
+    width:  260px;
+    height: 100%;
 
   }
 }
@@ -404,6 +419,7 @@ form {
 }
 
 .listingText {
+  margin-bottom: 3rem;
   margin-top: 3rem;
   font-weight: 600;
 }
@@ -453,5 +469,16 @@ form {
 }
 .editIcon {
   cursor: pointer;
-  
+}
+
+.listingsList {
+  width: 70%;
+  margin: auto;
+}
+
+@media (min-width: 1024px) {
+  .listingsList {
+    width: 100%;
+    
+  }
 }

@@ -1,33 +1,22 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate, useParams} from 'react-router-dom'
 import {toast} from 'react-toastify'
-import {editListing, reset, getListing} from '../features/listings/listingSlice'
-import Spinner from '../components/Spinner'
+import {editListing} from '../features/listings/listingSlice'
 
 function EditListing() {
-    const {isLoading, isError, isSuccess, message, listing} = useSelector((state) => state.listings)
+    
+    const {listingId} = useParams()
+    const formData = useSelector((state) => state.listings.listings?.find(listing => listing._id === listingId))
 
-    const [name, setName] = useState('')
-    const [gender, setGender] = useState('נקבה')
-    const [race, setRace] = useState('')
-    const [age, setAge] = useState(1)
-    const [images, setImages] = useState({})
+    const [name, setName] = useState(formData?.name)
+    const [gender, setGender] = useState(formData?.gender)
+    const [race, setRace] = useState(formData?.race)
+    const [age, setAge] = useState(formData?.age)
+    const [images, setImages] = useState(formData?.images)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const {listingId} = useParams()
-
-    useEffect(() => {
-        if(isError) {
-            toast.error(message)
-        }
-        if(isSuccess) {
-            toast.success('העריכה בוצעה בהצלחה')
-            navigate('/listings')
-        }
-    }, [dispatch, isError, message, isSuccess, navigate])
-
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -35,15 +24,16 @@ function EditListing() {
             toast.error('ניתן להעלות מקסימום ארבע תמונות')
             return
         }
-        dispatch(editListing({name, gender, race, age, images, _id: listingId}))
+        dispatch(editListing({name, gender, race, age, images, _id: listingId})).unwrap().then(() => {
+            navigate('/listings')
+            toast.success('העריכה בוצעה בהצלחה')
+        })
+        .catch(toast.error)
+
     }
 
     const handleImageChange = (e) => {
         setImages(e.target.files) 
-    }
-
-    if(isLoading) {
-        return <Spinner />
     }
 
   return (

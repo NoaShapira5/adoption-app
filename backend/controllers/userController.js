@@ -82,7 +82,7 @@ const updateUser = asyncHandler(async (req, res) => {
         throw new Error('User not found')
     } 
 
-    const updateUser = await User.findByIdAndUpdate(req.params.userId, req.body)
+    const updateUser = await User.findByIdAndUpdate(req.params.userId, req.body, {new: true})
     res.status(200).json(updateUser)
 })
 

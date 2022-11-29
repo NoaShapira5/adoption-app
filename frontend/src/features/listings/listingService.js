@@ -19,14 +19,21 @@ const createListing = async (listingData, token) => {
     return response.data
 }
 
-// Get listings
-const getListings = async (token) => {
+// Get all listings
+const getListings = async () => {
+
+    const response = await axios.get(API_URL)
+    return response.data
+}
+
+// Get user's listings
+const getListingsUser = async (token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-    const response = await axios.get(API_URL, config)
+    const response = await axios.get(API_URL + 'my-listings', config)
     return response.data
 }
 
@@ -71,6 +78,7 @@ const editListing = async (listing, token) => {
 
 
 const listingService = {
+    getListingsUser,
     createListing,
     getListings,
     getListing,

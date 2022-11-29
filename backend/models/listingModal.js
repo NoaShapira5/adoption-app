@@ -22,6 +22,9 @@ const listingSchema = mongoose.Schema({
         type: Number,
         required: [true, 'Please add an age']
     },
+    desc: {
+        type: String
+    },
     images: {
         type: [String],
         requird: [true, 'Please add images']
