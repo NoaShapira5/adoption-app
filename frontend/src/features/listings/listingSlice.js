@@ -4,7 +4,8 @@ import { extractErrorMessage } from '../../utils'
 
 const initialState = {
     listings: null,
-    listing: null
+    listing: null,
+    isLoading: false
 }
 
 // Create new listing
@@ -91,14 +92,21 @@ export const listingSlice = createSlice({
             .addCase(deleteListing.fulfilled, (state, action) => {
                 state.listings = state.listings.filter(listing => listing._id  !== action.payload._id)
             })
+            .addCase(editListing.pending, (state) => {
+                state.isLoading = true
+            })
             .addCase(editListing.fulfilled, (state, action) => {
+                state.isLoading = false
                 state.listing = action.payload
                 state.listings = state.listings.map((listing) =>
                   listing._id === action.payload._id ? action.payload : listing
                 )
             })
+            .addCase(createListing.pending, (state) => {
+                state.isLoading = true
+            })
             .addCase(createListing.fulfilled, (state, action) => {
-                state.listings = [...state.listings, action.payload]
+                state.isLoading = false
             })
             
             

@@ -1,15 +1,13 @@
-import {Navigate, Outlet} from 'react-router-dom'
-import { useAuthAdminPer } from '../hooks/useAuthAdminPer'
-import Spinner from './Spinner'
+import {Navigate} from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
+function AdminRoute({children}) {
+    const {user} = useSelector((state) => state.auth)
 
-function AdminRoute() {
-    const {userIsAdmin, checkingStatusAdmin} = useAuthAdminPer()
-
-    if(checkingStatusAdmin) {
-        return <Spinner />
+    if(user.isAdmin) {
+        return children
     }
-  return userIsAdmin ? <Outlet /> : <Navigate to='/no-permission' />
+  return <Navigate to='/no-permission' />
 }
 
 export default AdminRoute

@@ -6,7 +6,7 @@ import {createListing} from '../features/listings/listingSlice'
 import Spinner from "../components/Spinner"
 
 function CreateListing() {
-    const {listings} = useSelector(state => state.listings)
+    const {isLoading} = useSelector(state => state.listings)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -14,6 +14,7 @@ function CreateListing() {
     const [gender, setGender] = useState('נקבה')
     const [race, setRace] = useState('')
     const [age, setAge] = useState(1)
+    const [desc, setDesc] = useState('')
     const [images, setImages] = useState({})
 
     const onSubmit = (e) => {
@@ -22,7 +23,7 @@ function CreateListing() {
             toast.error('ניתן להעלות מקסימום ארבע תמונות')
             return
         }
-        dispatch(createListing({name, gender, race, age, images})).unwrap().then(() => {
+        dispatch(createListing({name, gender, race, age, desc, images})).unwrap().then(() => {
             navigate('/listings')
             toast.success('הכלב פורסם בהצלחה')
         })
@@ -36,7 +37,7 @@ function CreateListing() {
         
     }
 
-    if(!listings) {
+    if(!isLoading) {
         return <Spinner />
     }
 
@@ -79,33 +80,53 @@ function CreateListing() {
                     נקבה
                 </button>
             </div>
-            <div className="inputOne">
-                <label className='formLabel'>גיל</label>
-                <input 
-                    type="number" 
-                    className="formInputSmall"
-                     id="age"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                    min='1'
-                    max='50'
-                    dir="rtl"
-                    required />
+            <div className="formRow flex">
+                <div className="formAge">
+                    <label className='formLabel'>גיל</label>
+                    <input 
+                        type="number" 
+                        className="formInputSmall"
+                        id="age"
+                        value={age}
+                        onChange={(e) => setAge(e.target.value)}
+                        min='0'
+                        max='20'
+                        step="0.1"
+                        dir="rtl"
+                        required />
+                </div>
+                <div className="formRace">
+                    <label className='formLabel'>גזע</label>
+                    <input 
+                        type="text" 
+                        className="formInputSmall"
+                        id="race"
+                        value={race}
+                        onChange={(e) => setRace(e.target.value)}
+                        dir="rtl"
+                        required />
+                </div>
             </div>
-            <div className="inputTwo">
-                <label className='formLabel'>גזע</label>
-                <input 
+                
+
+            <div className="formDesc">
+                <label className='formLabel'>תיאור</label>
+                <textarea 
                     type="text" 
-                    className="formInputSmall"
-                    id="race"
-                    value={race}
-                    onChange={(e) => setRace(e.target.value)}
+                    className="formInputDesc"
+                    id="desc"
+                    value={desc}
+                    onChange={(e) => setDesc(e.target.value)}
                     min='1'
                     max='50'
                     dir="rtl"
-                    required />
+                    />
             </div>
-            <div className="images">      
+            <div className="formImages">
+                <label className='formLabel'>תמונות</label>
+                <p className='imagesInfo'>
+                    התמונה הראשונה תהיה תמונה ראשית (מקסימום ארבע תמונות)
+                </p>      
                 {/* <label htmlFor="images" className='formImages'>בחר תמונות</label> */}
                 <input 
                     className='formInputFile'

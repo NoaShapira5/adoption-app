@@ -250,27 +250,18 @@ form {
   display: block;
 }
 
+.formButton {
+  margin: 0.5rem 0.5rem 0 0;
+}
+
 .formButtons {
   margin-top: 1rem;
-}
-
-
-.inputOne {
-  float: left;
-  margin-right: 20px;
-}
-
-.inputTwo {
-  float: left;
-}
-
-.formInputSmall {
-  display: block;
 }
 
 .formButton,
 .formInputName,
 .formInputSmall,
+.formInputDesc,
 .formInputFile,
 .formButtonActive {
   padding: 0.9rem 3rem;
@@ -278,9 +269,15 @@ form {
   font-weight: 600;
   border-radius: 1rem;
   font-size: 1rem;
-  margin: 0.5rem 0.5rem 0 0;
   font-family: 'Secular One';
   border: none;
+  margin: 0.5rem 0.5rem 0 0;
+}
+
+.formInputSmall,
+.formInputFile {
+  padding: 0.9rem 1.9rem;
+  text-align: center;
 }
 
 .formButtonActive {
@@ -288,24 +285,15 @@ form {
   color: #ffffff;
 }
 
-.images {
-  margin:auto;
+.imagesInfo {
+  font-size: 0.9rem;
+  opacity: 0.75;
 }
 
-/* .formInputFile {
-  visibility: hidden;
-} */
-
-.formImages {
-  background-color: #00ccbb;
-  color: #ffffff;
-  padding: 0.5rem 0.75rem;
-  border-radius: 1rem;
+.flex {
+  display: flex;
 }
 
-.createListingButton {
-  margin-top: 5rem;
-}
 .primaryButton {
   cursor: pointer;
   background: #00ccbb;
@@ -315,7 +303,7 @@ form {
   font-weight: 600;
   font-size: 1.25rem;
   width: 80%;
-  margin: 0 auto;
+  margin: 1rem auto 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -325,7 +313,7 @@ form {
 }
 
 .formInputFile {
-  width: 80%;
+  width: 70%;
 }
 .formInputFile::-webkit-file-upload-button {
   background-color: #00ccbb;
@@ -381,8 +369,6 @@ form {
   border-radius: 1.5rem;
   border-style: solid;
   border-color: #fff;
-  
-
 }
 
 .categoryListingLink {
@@ -403,12 +389,12 @@ form {
   }
 }
 
-.categoryListingDetails {
-  width: 65%;
+.categoryListingDetails, .divListingDesc, .divListingName {
+  width: 25%;
 }
 @media (min-width: 1024px) {
-  .categoryListingDetails {
-    width: 79%;
+  .categoryListingDetails, .divListingDesc, .divListingName {
+    width: 30%;
   }
 }
 
@@ -461,7 +447,6 @@ form {
 .listingName {
   font-weight: 600;
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .removeIcon {
@@ -481,4 +466,15 @@ form {
     width: 100%;
     
   }
+}
+
+.formRace {
+  display: inline-block;
+  padding: 0rem 1rem;
+  vertical-align: middle;
+}
+
+.formRow {
+  padding: 0rem 2rem;
+  text-align: center;
 }

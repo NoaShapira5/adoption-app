@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate, useParams} from 'react-router-dom'
 import {toast} from 'react-toastify'
 import {editListing} from '../features/listings/listingSlice'
+import Spinner from "../components/Spinner"
 
 function EditListing() {
     
@@ -13,7 +14,10 @@ function EditListing() {
     const [gender, setGender] = useState(formData?.gender)
     const [race, setRace] = useState(formData?.race)
     const [age, setAge] = useState(formData?.age)
+    const [desc, setDesc] = useState(formData?.desc)
     const [images, setImages] = useState(formData?.images)
+
+    const {isLoading} = useSelector(state => state.listings)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -24,7 +28,7 @@ function EditListing() {
             toast.error('ניתן להעלות מקסימום ארבע תמונות')
             return
         }
-        dispatch(editListing({name, gender, race, age, images, _id: listingId})).unwrap().then(() => {
+        dispatch(editListing({name, gender, race, age, desc, images, _id: listingId})).unwrap().then(() => {
             navigate('/listings')
             toast.success('העריכה בוצעה בהצלחה')
         })
@@ -34,6 +38,10 @@ function EditListing() {
 
     const handleImageChange = (e) => {
         setImages(e.target.files) 
+    }
+
+    if(!isLoading) {
+        return <Spinner />
     }
 
   return (
@@ -75,33 +83,53 @@ function EditListing() {
                     נקבה
                 </button>
             </div>
-            <div className="inputOne">
-                <label className='formLabel'>גיל</label>
-                <input 
-                    type="number" 
-                    className="formInputSmall"
-                     id="age"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                    min='1'
-                    max='50'
-                    dir="rtl"
-                    required />
+            <div className="formRow flex">
+                <div className="formAge">
+                    <label className='formLabel'>גיל</label>
+                    <input 
+                        type="number" 
+                        className="formInputSmall"
+                        id="age"
+                        value={age}
+                        onChange={(e) => setAge(e.target.value)}
+                        min='0'
+                        max='20'
+                        step="0.1"
+                        dir="rtl"
+                        required />
+                </div>
+                <div className="formRace">
+                    <label className='formLabel'>גזע</label>
+                    <input 
+                        type="text" 
+                        className="formInputSmall"
+                        id="race"
+                        value={race}
+                        onChange={(e) => setRace(e.target.value)}
+                        dir="rtl"
+                        required />
+                </div>
             </div>
-            <div className="inputTwo">
-                <label className='formLabel'>גזע</label>
-                <input 
+                
+
+            <div className="formDesc">
+                <label className='formLabel'>תיאור</label>
+                <textarea 
                     type="text" 
-                    className="formInputSmall"
-                    id="race"
-                    value={race}
-                    onChange={(e) => setRace(e.target.value)}
+                    className="formInputDesc"
+                    id="desc"
+                    value={desc}
+                    onChange={(e) => setDesc(e.target.value)}
                     min='1'
                     max='50'
                     dir="rtl"
-                    required />
+                    />
             </div>
-            <div className="images">      
+            <div className="formImages">
+                <label className='formLabel'>תמונות</label>
+                <p className='imagesInfo'>
+                    התמונה הראשונה תהיה תמונה ראשית (מקסימום ארבע תמונות)
+                </p>      
                 {/* <label htmlFor="images" className='formImages'>בחר תמונות</label> */}
                 <input 
                     className='formInputFile'

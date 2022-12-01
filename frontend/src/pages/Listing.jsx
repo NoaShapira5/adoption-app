@@ -52,6 +52,7 @@ function Listing() {
         {shareLinkCopied && <p className='linkCopied'>Link Copied!</p>}
         <div className="kistingDetails">
             <p className="listingName">{listing.name}</p>
+            <p className="listingDesv">{listing.desc}</p>
             <p className="listingRace">גזע: {listing.race}</p>
             <p className="listingAge">גיל: {listing.age}</p>
             <p className="listingGender">מין: {listing.gender}</p>

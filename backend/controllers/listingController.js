@@ -61,7 +61,7 @@ const getListingUser = asyncHandler(async (req, res) => {
 // @route POST /api/listings 
 // @access Private
 const createListingUser = asyncHandler(async (req, res) => {
-    const {name, gender, race, age, images} = req.body
+    const {name, gender, race, age, desc, images} = req.body
 
     if(!name || !gender || !race || !age || !images) {
         res.status(400)
@@ -80,6 +80,7 @@ const createListingUser = asyncHandler(async (req, res) => {
         gender,
         race,
         age,
+        desc,
         images,
         user: req.user.id
     })

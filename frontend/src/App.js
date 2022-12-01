@@ -23,25 +23,50 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
-            <Route to='/register' element={<AdminRoute />}>
-              <Route path='/register' element={<Register />} />
-            </Route>
-            <Route path='/profile' element={<PrivateRoute />} >
-              <Route path='/profile' element={<Profile />} />
-            </Route>
+            <Route 
+            path='/register'
+            element={<AdminRoute>
+                      <Register />
+                    </AdminRoute>}
+            />
+
+            <Route 
+            path='/profile'
+            element={<PrivateRoute>
+                      <Profile />
+                    </PrivateRoute>}
+            />
+
             <Route path='/no-permission' element={<NoPermission />} />
-            <Route to='/create-listing' element={<PrivateRoute />}>
-              <Route path='/create-listing' element={<CreateListing />} />
-            </Route>
-            <Route to='/listings' element={<PrivateRoute />}>
-              <Route path='/listings' element={<ListingsUser />} />
-            </Route>
-            <Route to='/listings/:listingId' element={<PrivateRoute />}>
-              <Route path='/listings/:listingId' element={<Listing />} />
-            </Route>
-            <Route to='/edit-listing/:listingId' element={<PrivateRoute />}>
-              <Route path='/edit-listing/:listingId' element={<EditListing />} />
-            </Route>
+
+            <Route 
+            path='/create-listing'
+            element={<PrivateRoute>
+                      <CreateListing />
+                    </PrivateRoute>}
+            />
+
+            <Route 
+            path='/listings'
+            element={<PrivateRoute>
+                      <ListingsUser />
+                    </PrivateRoute>}
+            />
+
+            <Route 
+            path='/listings/:listingId'
+            element={<PrivateRoute>
+                      <Listing />
+                    </PrivateRoute>}
+            />
+            
+            <Route
+            path='/edit-listing/:listingId' 
+            element={<PrivateRoute>
+                      <EditListing />
+                    </PrivateRoute>}
+            />
+            
           </Routes>
         </div>
       </Router>
