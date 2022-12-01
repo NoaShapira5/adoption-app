@@ -3,7 +3,11 @@ const Multer = require('multer');
 
 
 // Instantiate a storage client
-const storage = new Storage();
+const storage = new Storage({ projectId: process.env.GOOGLE_PROJECTID,
+  credentials: { client_email: process.env.GOOGLE_CLIENT_EMAIL,
+                  private_key: process.env.GOOGLE_PRIVATE_KEY
+                } 
+});
 
 // Multer is required to process file uploads and make them available via
 // req.files.
