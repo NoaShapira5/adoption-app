@@ -40,7 +40,7 @@ function EditListing() {
         setImages(e.target.files) 
     }
 
-    if(!isLoading) {
+    if(isLoading) {
         return <Spinner />
     }
 

@@ -102,10 +102,16 @@ export const listingSlice = createSlice({
                   listing._id === action.payload._id ? action.payload : listing
                 )
             })
+            .addCase(editListing.rejected, (state) => {
+                state.isLoading = false
+            })
             .addCase(createListing.pending, (state) => {
                 state.isLoading = true
             })
-            .addCase(createListing.fulfilled, (state, action) => {
+            .addCase(createListing.fulfilled, (state) => {
+                state.isLoading = false
+            })
+            .addCase(createListing.rejected, (state) => {
                 state.isLoading = false
             })
             

@@ -37,7 +37,7 @@ function CreateListing() {
         
     }
 
-    if(!isLoading) {
+    if(isLoading) {
         return <Spinner />
     }
 
