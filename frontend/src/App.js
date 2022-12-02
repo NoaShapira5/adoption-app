@@ -53,12 +53,7 @@ function App() {
                     </PrivateRoute>}
             />
 
-            <Route 
-            path='/listings/:listingId'
-            element={<PrivateRoute>
-                      <Listing />
-                    </PrivateRoute>}
-            />
+            <Route path='/listings/:listingId' element={<Listing /> } />
             
             <Route
             path='/edit-listing/:listingId' 
