@@ -32,26 +32,15 @@ const getListings = asyncHandler(async (req, res) => {
 
 // @desc Get user listing
 // @route GET /api/listings/listing/:id 
-// @access Private
+// @access Public
 const getListingUser = asyncHandler(async (req, res) => {
-    // Get user using the id in the JWT
-    const user = await User.findById(req.user.id)
 
-    if(!user) {
-        res.status(401)
-        throw new Error('User not found')
-    }
 
     const listing = await Listing.findById(req.params.id)
 
     if(!listing) {
         res.status(404)
         throw new Error('Listing not found')
-    }
-
-    if(listing.user.toString() !== req.user.id) {
-        res.status(401)
-        throw new Error('Not Authorized')
     }
 
     res.status(200).json(listing)
