@@ -10,7 +10,7 @@ router.route('/').get(getListings).post(protect, createListingUser)
 
 router.route('/my-listings').get(protect, getListingsUser)
 
-router.route('/:id').get(protect, getListingUser).delete(protect, deleteListingUser).put(protect, updateListingUser)
+router.route('/:id').get(getListingUser).delete(protect, deleteListingUser).put(protect, updateListingUser)
 
 
 

@@ -40,8 +40,7 @@ export const getListingsUser = createAsyncThunk('listing/get', async (_, thunkAP
 // get listing
 export const getListing = createAsyncThunk('listing/getOne', async (listingId, thunkAPI) => {
     try {
-        const token = thunkAPI.getState().auth.user.token
-        return await listingService.getListing(listingId, token)
+        return await listingService.getListing(listingId)
     } catch (error) {
         return thunkAPI.rejectWithValue(extractErrorMessage(error))
     }

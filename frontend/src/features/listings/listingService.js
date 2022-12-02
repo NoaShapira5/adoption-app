@@ -38,13 +38,9 @@ const getListingsUser = async (token) => {
 }
 
 // Get listing
-const getListing = async (listingId, token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }
-    const response = await axios.get(API_URL + listingId, config)
+const getListing = async (listingId) => {
+
+    const response = await axios.get(API_URL + listingId)
     return response.data
 }
 
