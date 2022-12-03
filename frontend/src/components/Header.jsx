@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {logout} from '../features/auth/authSlice'
 import {FaArrowAltCircleLeft} from 'react-icons/fa'
+import mainLogo from '../assets/mainLogo.png'
 
 function Header() {
     const navigate = useNavigate()
@@ -15,14 +16,7 @@ function Header() {
     }
   return (
     <header className='header'>
-        <div className='logo'>
-            <Link to='/'>אתר אימוץ</Link>
-            <button className="btn" onClick={() => navigate(-1)}>
-                <FaArrowAltCircleLeft /> חזרה
-            </button>
-            
-        </div>
-        <div className="right">
+        <div className="left">
         
             {user ? (
                 <>
@@ -63,6 +57,15 @@ function Header() {
                 </>
             )}
         
+        </div>
+        <div className='logo'>
+            <Link to='/'>
+                <img src={mainLogo} alt='אתר אימוץ' className='main-logo' />
+            </Link>
+            <button className="btn" onClick={() => navigate(-1)}>
+                <FaArrowAltCircleLeft /> חזרה
+            </button>
+            
         </div>
     </header>
   )

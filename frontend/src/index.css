@@ -44,13 +44,28 @@ h3 {
   text-align: center;
 }
 
+
+.main-logo {
+  width: 65%;
+  min-width: 300px;
+  height: auto;
+  display: inline-block;
+}
+
+@media screen and (min-width: 500px) {
+  .header {
+    display: flex;
+    padding: 20px 0;
+    margin-bottom: 45px;
+  }
+}
+
 .header {
-  display: flex;
+  
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
   border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 60px;
+  
 }
 
 .header ul {
@@ -84,17 +99,27 @@ h3 {
   color:#777
 }
 
-.header ul li a svg {
+/* .header ul li a svg {
   margin-right: 5px;
-}
+} */
 
 .profile-text {
+  display: flex;
   color: #ffffff;
   cursor: pointer;
   background-color: #00ccbb;
-  padding: 0.25rem 7rem;
+  padding: 0.25rem 9rem;
+  align-items: center;
+  text-align: center;
   border-radius: 1rem;
 }
+
+@media screen and (min-width: 500px) {
+  .profile-text {
+    padding: 0.25rem 7rem;
+  }
+}
+
 
 .heading {
   font-size: 2rem;
@@ -183,7 +208,7 @@ form {
 }
 
 .profileHeader {
-  font-size: rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 50px;
   padding: 0 20px;
@@ -376,26 +401,53 @@ form {
 }
 
 .categoryListingImg {
-  width:  170px;
-  height: 100%;
+  /* width:  170px;
+  height: 100%; */
+  width: 30%;
+  height: 100px;
   border-radius: 1.5rem;
   object-fit: cover;
 }
 @media (min-width: 1024px) {
   .categoryListingImg {
-    width:  260px;
-    height: 100%;
+    width: 200px;
+    height: 19%;
+    /* width:  260px;
+    height: 100%; */
 
   }
 }
 
-.categoryListingDetails, .divListingDesc, .divListingName {
-  width: 25%;
+.categoryListingDetails {
+  width: 65%;
 }
 @media (min-width: 1024px) {
-  .categoryListingDetails, .divListingDesc, .divListingName {
-    width: 30%;
+  .categoryListingDetails {
+    width: 79%;
   }
+}
+
+.categoryListingDesc {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.categoryListingInfoDiv {
+  display: flex;
+  justify-content: space-between;
+  max-width: 275px;
+  margin: auto;
+  
+  
+}
+
+.categoryListingAge, .categoryListingRace, .categoryListingGender {
+  font-weight: 500;
+  font-size: 0.75rem;
+  
 }
 
 .categoryListingName {
