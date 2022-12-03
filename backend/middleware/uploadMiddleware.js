@@ -1,18 +1,13 @@
 const {Storage} = require('@google-cloud/storage');
 const Multer = require('multer');
 
-let storage;
+
 // Instantiate a storage client
-try {
-    storage = new Storage({ projectId: process.env.GOOGLE_PROJECTID,
-    credentials: { client_email: process.env.GOOGLE_CLIENT_EMAIL,
-                    private_key: process.env.GOOGLE_PRIVATE_KEY
-                  } 
-  });
-} catch(error) {
-  console.log(error)
-  throw error
-}
+const storage = new Storage({ projectId: process.env.GOOGLE_PROJECTID,
+  credentials: { client_email: process.env.GOOGLE_CLIENT_EMAIL,
+                  private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')
+                } 
+});
 
 // Multer is required to process file uploads and make them available via
 // req.files.
