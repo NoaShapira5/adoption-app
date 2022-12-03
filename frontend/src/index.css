@@ -42,6 +42,25 @@ h3 {
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
+  height: calc(100% - 60px);
+
+}
+
+.footer {
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  font-size: x-small;
+}
+
+.subLogo {
+  height: 80%;
+  margin-left: 10px;
+  
 }
 
 
@@ -457,8 +476,8 @@ form {
 }
 
 .listingText {
-  margin-bottom: 3rem;
-  margin-top: 3rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
   font-weight: 600;
 }
 

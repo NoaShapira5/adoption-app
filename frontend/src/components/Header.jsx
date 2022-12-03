@@ -2,7 +2,6 @@ import {FaSignInAlt, FaUser, FaPaw, FaSignOutAlt} from 'react-icons/fa'
 import {Link, useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {logout} from '../features/auth/authSlice'
-import {FaArrowAltCircleLeft} from 'react-icons/fa'
 import mainLogo from '../assets/mainLogo.png'
 
 function Header() {
@@ -61,11 +60,7 @@ function Header() {
         <div className='logo'>
             <Link to='/'>
                 <img src={mainLogo} alt='אתר אימוץ' className='main-logo' />
-            </Link>
-            <button className="btn" onClick={() => navigate(-1)}>
-                <FaArrowAltCircleLeft /> חזרה
-            </button>
-            
+            </Link>     
         </div>
     </header>
   )

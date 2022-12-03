@@ -13,6 +13,7 @@ import PrivateRoute from './components/PrivateRoute';
 import AdminRoute from './components/AdminRoute';
 import Listing from './pages/Listing';
 import EditListing from './pages/EditListing';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
             
           </Routes>
         </div>
+        <Footer />
       </Router>
       <ToastContainer />
     </>
