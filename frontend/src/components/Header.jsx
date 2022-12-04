@@ -13,6 +13,11 @@ function Header() {
         dispatch(logout())
         navigate('/')
     }
+
+    const onRegister = () => {
+        navigate('/register')
+    }
+
   return (
     <header className='header'>
         <div className="left">
@@ -27,14 +32,15 @@ function Header() {
                                     <FaSignOutAlt />
                                 </button>
                             </div>
-
                         </li>
                         {user.isAdmin && (
-                            <li>
-                                <Link to='/register'>
+                        <li>
+                            <div className="btn2" onClick={onRegister}>
+                                <button>
                                     רישום משתמש חדש&nbsp;<FaUser /> 
-                                </Link>
-                            </li>
+                                </button>
+                            </div>
+                        </li>                            
                         )}
                     </ul>
                     

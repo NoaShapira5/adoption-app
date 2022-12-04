@@ -86,10 +86,6 @@ li {
   justify-content: center;
 }
 
-.header ul li{
-  margin-left: 20px;
-}
-
 .header ul li a{
   display: flex;
   align-items: center;
@@ -168,6 +164,7 @@ form {
 
 .btn,
 .btn2 button{
+  white-space: nowrap;
   font-family: 'Secular One';
   padding: 10px 20px;
   border: none;
