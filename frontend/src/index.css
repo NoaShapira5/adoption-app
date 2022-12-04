@@ -282,6 +282,7 @@ form {
 .formButton,
 .formButtonActive {
   padding: 0.9rem 2rem;
+  color: #000;
 }
 
 .formButtons {
