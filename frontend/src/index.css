@@ -83,7 +83,7 @@ li {
 .header ul {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .header ul li{

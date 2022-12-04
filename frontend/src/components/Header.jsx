@@ -19,7 +19,7 @@ function Header() {
         
             {user ? (
                 <>
-                    <ul>
+                    <ul className='buttons'>
                         <li>
                             <div className="btn2">
                                 <button onClick={onLogout}>
@@ -37,6 +37,7 @@ function Header() {
                             </li>
                         )}
                     </ul>
+                    
                     <div className="profile">
                         <Link to='/profile' className='profile-text'>
                             פרופיל&nbsp;&nbsp;<FaPaw />
