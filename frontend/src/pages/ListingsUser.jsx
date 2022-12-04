@@ -5,6 +5,7 @@ import { useEffect } from "react"
 import { getListingsUser, deleteListing } from "../features/listings/listingSlice"
 import {toast} from 'react-toastify'
 import { useNavigate } from "react-router-dom"
+import BackButton from "../components/BackButton"
 
 
 function ListingsUser() {
@@ -38,6 +39,7 @@ function ListingsUser() {
   return (
   <>
     <header className="pageHeader">
+        <BackButton />
         <p className="listingText">כלבים שפרסמת לאימוץ</p>
     </header>
     <ul className="listingsList">

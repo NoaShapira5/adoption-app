@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import {useDispatch, useSelector} from 'react-redux'
 import {login} from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
+import BackButton from "../components/BackButton"
 
 function Login() {
     const [formData, setFormData] = useState({
@@ -49,6 +50,7 @@ function Login() {
   return (
     <>
       <section className="heading">
+        <BackButton />
         <h1>
             כניסה
         </h1>

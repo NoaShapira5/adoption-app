@@ -8,6 +8,7 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css/bundle'
 import {Navigation, Pagination, Scrollbar, A11y} from 'swiper'
 import {FaCopy} from 'react-icons/fa'
+import BackButton from "../components/BackButton"
 
 function Listing() {
     const [shareLinkCopied, setShareLinkCopied] = useState(false)
@@ -28,6 +29,7 @@ function Listing() {
 
   return (
     <main>
+        <BackButton />
         <Swiper
         slidesPerView={1} 
         modules={[Navigation, Pagination, Scrollbar, A11y]}

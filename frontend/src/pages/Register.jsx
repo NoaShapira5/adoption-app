@@ -4,6 +4,7 @@ import {toast} from 'react-toastify'
 import {useSelector, useDispatch} from 'react-redux'
 import {register} from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
+import BackButton from "../components/BackButton"
 
 function Register() {
     const [formData, setFormData] = useState({
@@ -51,6 +52,7 @@ function Register() {
   return (
     <>
       <section className="heading">
+        <BackButton />
         <h1>
             הרשמה
         </h1>

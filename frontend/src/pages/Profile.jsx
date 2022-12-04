@@ -4,6 +4,7 @@ import { updateUser } from "../features/auth/authSlice"
 import {Link} from 'react-router-dom'
 import {FaDog, FaArrowRight} from 'react-icons/fa'
 import Spinner from '../components/Spinner'
+import BackButton from "../components/BackButton"
 
 function Profile() {
 
@@ -40,6 +41,7 @@ function Profile() {
 
   return (
     <div className='profilePage'>
+      <BackButton />
       <header className="profileHeader">
         <p className="pageHeader">
           הפרופיל שלי

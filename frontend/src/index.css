@@ -10,6 +10,8 @@ body {
   font-family: 'Secular One';
   height: 100vh;
   background-color: rgb(240, 240, 240);
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -29,31 +31,25 @@ li {
   line-height: 2.2;
 }
 
-/* h1,
-h2,
-h3 {
-  font-weight: 600;
-  margin-bottom: 10px;
-} */
-
 .container {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
-  height: calc(100% - 60px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
 }
 
 .footer {
-  position:absolute;
-  left:0;
-  right:0;
-  width: 100%;
   text-align: center;
   height: 50px;
   font-size: x-small;
+  padding: 8px;
+  margin-top: auto;
+
 }
 
 .subLogo {
@@ -114,10 +110,6 @@ h3 {
 .logo button:hover {
   color:#777
 }
-
-/* .header ul li a svg {
-  margin-right: 5px;
-} */
 
 .profile-text {
   display: flex;
@@ -220,7 +212,7 @@ form {
 .pageHeader {
   font-size: 2rem;
   font-weight: 800;
-  margin-bottom: auto;
+  /* margin-bottom: auto; */
 }
 
 .profileHeader {
@@ -417,8 +409,6 @@ form {
 }
 
 .categoryListingImg {
-  /* width:  170px;
-  height: 100%; */
   width: 30%;
   height: 100px;
   border-radius: 1.5rem;
@@ -428,9 +418,6 @@ form {
   .categoryListingImg {
     width: 200px;
     height: 19%;
-    /* width:  260px;
-    height: 100%; */
-
   }
 }
 
@@ -527,15 +514,8 @@ form {
 
 .listingsList {
   width: 100%;
-  margin: auto;
+  /* margin: auto; */
 }
-
-/* @media (min-width: 1024px) {
-  .listingsList {
-    width: 100%;
-    
-  }
-} */
 
 .formRace {
   display: inline-block;
