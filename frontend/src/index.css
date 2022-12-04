@@ -29,12 +29,12 @@ li {
   line-height: 2.2;
 }
 
-h1,
+/* h1,
 h2,
 h3 {
   font-weight: 600;
   margin-bottom: 10px;
-}
+} */
 
 .container {
   width: 100%;
@@ -59,9 +59,7 @@ h3 {
 .subLogo {
   height: 80%;
   margin-left: 10px;
-  
 }
-
 
 .main-logo {
   width: 65%;
@@ -465,6 +463,7 @@ form {
 .categoryListingAge, .categoryListingRace, .categoryListingGender {
   font-weight: 500;
   font-size: 0.75rem;
+  display: inline-block;
   
 }
 
@@ -527,16 +526,16 @@ form {
 }
 
 .listingsList {
-  width: 70%;
+  width: 100%;
   margin: auto;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .listingsList {
     width: 100%;
     
   }
-}
+} */
 
 .formRace {
   display: inline-block;
