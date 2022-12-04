@@ -20,8 +20,12 @@ function Header() {
 
   return (
     <header className='header'>
+        <div className='logo'>
+            <Link to='/'>
+                <img src={mainLogo} alt='אתר אימוץ' className='main-logo' />
+            </Link>     
+        </div>
         <div className="left">
-        
             {user ? (
                 <>
                     <ul className='buttons'>
@@ -63,11 +67,6 @@ function Header() {
                 </>
             )}
         
-        </div>
-        <div className='logo'>
-            <Link to='/'>
-                <img src={mainLogo} alt='אתר אימוץ' className='main-logo' />
-            </Link>     
         </div>
     </header>
   )
