@@ -14,7 +14,7 @@ function CreateListing() {
     const [name, setName] = useState('')
     const [gender, setGender] = useState('נקבה')
     const [race, setRace] = useState('')
-    const [age, setAge] = useState(1)
+    const [age, setAge] = useState(0)
     const [desc, setDesc] = useState('')
     const [images, setImages] = useState({})
 
@@ -82,35 +82,32 @@ function CreateListing() {
                         נקבה
                     </button>
                 </div>
-                <div className="formRow flex">
-                    <div className="formAge">
-                        <label className='formLabel'>גיל</label>
-                        <input 
-                            type="number" 
-                            className="formInputSmall"
-                            id="age"
-                            value={age}
-                            onChange={(e) => setAge(e.target.value)}
-                            min='0'
-                            max='20'
-                            step="0.1"
-                            dir="rtl"
-                            required />
+                
+                <div className="formAge">
+                    <label className='formLabel'>(בשנים) גיל</label>
+                    <input 
+                        type="number" 
+                        className="formInputSmall"
+                        id="age"
+                        value={age}
+                        onChange={(e) => setAge(e.target.value)}
+                        min='0'
+                        max='20'
+                        step="0.1"
+                        dir="rtl"
+                        required />
                     </div>
-                    <div className="formRace">
-                        <label className='formLabel'>גזע</label>
-                        <input 
-                            type="text" 
-                            className="formInputSmall"
-                            id="race"
-                            value={race}
-                            onChange={(e) => setRace(e.target.value)}
-                            dir="rtl"
-                            required />
-                    </div>
-                </div>
-                    
-
+                 <div className="formRace">
+                    <label className='formLabel'>גזע</label>
+                    <input 
+                        type="text" 
+                        className="formInputSmall"
+                        id="race"
+                        value={race}
+                        onChange={(e) => setRace(e.target.value)}
+                        dir="rtl"
+                        required />
+                </div>  
                 <div className="formDesc">
                     <label className='formLabel'>תיאור</label>
                     <textarea 
