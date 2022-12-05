@@ -43,30 +43,22 @@ li {
 }
 
 .main-logo {
-  width: 70%;
+  width: 60%;
   min-width: 340px;
   height: auto;
-  display: inline-block;
+  float: right;
 }
 
 .main-logo2 {
-  width: 40%;
-  min-width: 250px;
+  /* width: 15%; */
+  min-width: 100px;
+  width: 195px;
   height: auto;
   float: left;
+  
 }
 
-.logo-right {
-  order: 1;
-}
 
-@media screen and (min-width: 500px) {
-  .logos {
-    display: flex;
-    padding: 10px 0;
-    margin-top: 5px;
-  }
-}
 
 .header {
   justify-content: space-between;
@@ -74,9 +66,7 @@ li {
   border-bottom: 1px solid #e6e6e6;
 }
 
-.header ul li a{
-  display: flex;
-  align-items: center;
+.header ul li{
   float: left;
 }
 
@@ -112,11 +102,11 @@ li {
   float: left;
 }
 
-@media screen and (min-width: 500px) {
+/* @media screen and (min-width: 500px) {
   .profile-text {
     float: right;
   }
-}
+} */
 
 
 .footer {
@@ -128,8 +118,20 @@ li {
 }
 
 .subLogo {
-  height: 80%;
-  margin-left: 10px;
+  height: 25px;
+  min-height: 25px;
+}
+
+.logo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn {
@@ -207,7 +209,7 @@ form {
 }
 
 .pageHeader {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 600;
 }
 
