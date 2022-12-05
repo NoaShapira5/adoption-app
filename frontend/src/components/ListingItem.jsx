@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom'
-import {FaEdit} from 'react-icons/fa'
-import {MdDelete} from 'react-icons/md'
+import {ReactComponent as DeleteIcon} from '../assets/svg/deleteIcon.svg'
+import {ReactComponent as EditIcon} from '../assets/svg/editIcon.svg'
 
 function ListingItem({listing, id, onDelete, onEdit}) {
   return (
@@ -17,8 +17,8 @@ function ListingItem({listing, id, onDelete, onEdit}) {
               </div>
             </div>
         </Link>
-        {onDelete && (<MdDelete className='removeIcon' fill='rgb(231, 76, 60)' onClick={() => onDelete(id)} />)}
-        {onEdit && (<FaEdit className='editIcon' onClick={() => onEdit(id)}/>)}
+        {onDelete && (<DeleteIcon className='removeIcon' fill='rgb(231, 76, 60)' onClick={() => onDelete(id)} />)}
+        {onEdit && (<EditIcon className='editIcon' onClick={() => onEdit(id)}/>)}
       
     </li>
   )

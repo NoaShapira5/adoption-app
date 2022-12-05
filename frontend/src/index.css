@@ -40,39 +40,31 @@ li {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
-}
-
-.footer {
-  text-align: center;
-  height: 50px;
-  font-size: x-small;
-  padding: 8px;
-  margin-top: auto;
-
-}
-
-.subLogo {
-  height: 80%;
-  margin-left: 10px;
 }
 
 .main-logo {
-  width: 65%;
-  min-width: 300px;
+  width: 70%;
+  min-width: 340px;
   height: auto;
   display: inline-block;
 }
 
-.logo {
+.main-logo2 {
+  width: 40%;
+  min-width: 250px;
+  height: auto;
+  float: left;
+}
+
+.logo-right {
   order: 1;
 }
 
 @media screen and (min-width: 500px) {
-  .header {
+  .logos {
     display: flex;
-    padding: 20px 0;
-    margin-bottom: 45px;
+    padding: 10px 0;
+    margin-top: 5px;
   }
 }
 
@@ -82,51 +74,100 @@ li {
   border-bottom: 1px solid #e6e6e6;
 }
 
-.header ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .header ul li a{
   display: flex;
   align-items: center;
+  float: left;
 }
 
 .header ul li a:hover {
   color: #777;
 }
 
-.btn2 :hover {
-  color:#777
+.lower ul li a:hover {
+  color: #777;
+}
+
+.lower ul li a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo a:hover {
   color:#777
 }
 
-.logo button:hover {
-  color:#777
-}
 
 .profile-text {
   display: flex;
   color: #ffffff;
   cursor: pointer;
   background-color: #00ccbb;
-  padding: 0.25rem 9rem;
+  padding: 0.1rem 2rem;
   align-items: center;
   text-align: center;
   border-radius: 1rem;
   margin-bottom: 5px;
+  float: left;
 }
 
 @media screen and (min-width: 500px) {
   .profile-text {
-    padding: 0.25rem 7rem;
+    float: right;
   }
 }
 
+
+.footer {
+  text-align: center;
+  height: 50px;
+  font-size: x-small;
+  padding: 8px;
+  margin-top: auto;
+}
+
+.subLogo {
+  height: 80%;
+  margin-left: 10px;
+}
+
+.btn {
+  white-space: nowrap;
+  font-family: 'Secular One';
+  border: none;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.flex {
+  display: flex;
+}
+
+.btn svg {
+  margin-right: 8px;
+}
+
+.btn:hover {
+  color:#777;
+  transform: scale(0.98);
+}
+
+.btn-block {
+  background: #00ccbb;
+  color:rgb(255, 255, 255);
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+}
 
 .heading {
   font-size: 2rem;
@@ -165,55 +206,23 @@ form {
   margin: 0 0 5px 3px;
 }
 
-.btn,
-.btn2 button{
-  white-space: nowrap;
-  font-family: 'Secular One';
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  color: rgb(0, 0, 0);
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
-  appearance: button;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 5px;
-  margin-bottom: 5px;
-}
-
-.btn svg {
-  margin-right: 8px;
-}
-
-.btn-reverse {
-  background: #fff;
-  color: #000;
-}
-
-.btn-block {
-  background: #00ccbb;
-  color:rgb(255, 255, 255);
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.btn-sm {
-  padding: 5px 15px;
-  font-size: 13px;
-}
-
-.btn-back {
-  width: 150px;
-  margin-bottom: 20px;
-}
-
-
 .pageHeader {
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.whatsapp-img{
+  width: 40px;
+}
+
+.whatsapp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.whatsapp-text {
+  order: 1;
 }
 
 .profileHeader {
@@ -450,7 +459,7 @@ form {
 
 .categoryListingAge, .categoryListingRace, .categoryListingGender {
   font-weight: 500;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   display: inline-block;
   
 }
@@ -509,6 +518,7 @@ form {
 .removeIcon {
   cursor: pointer;
 }
+
 .editIcon {
   cursor: pointer;
 }

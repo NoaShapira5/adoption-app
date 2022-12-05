@@ -1,18 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.d6870cfc.css",
-    "main.js": "/static/js/main.d4d600db.js",
+    "main.css": "/static/css/main.7f543c9e.css",
+    "main.js": "/static/js/main.5531ab13.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/mainLogo2.png": "/static/media/mainLogo2.ed6637802b2692f8d3d0.png",
     "static/media/mainLogo.png": "/static/media/mainLogo.d1df3283dd673063bdfb.png",
+    "static/media/whatsappLogo.png": "/static/media/whatsappLogo.bf21a1ebdbf1933aab2f.png",
     "static/media/subLogo2.png": "/static/media/subLogo2.eb5a6e6eccae39ade235.png",
     "static/media/subLogo1.png": "/static/media/subLogo1.ecd8ca902bc685eda01b.png",
     "index.html": "/index.html",
-    "main.d6870cfc.css.map": "/static/css/main.d6870cfc.css.map",
-    "main.d4d600db.js.map": "/static/js/main.d4d600db.js.map",
+    "static/media/editIcon.svg": "/static/media/editIcon.9b527df04c00d16681c2b5da9c778dfc.svg",
+    "static/media/deleteIcon.svg": "/static/media/deleteIcon.a53e22036f5f02bda3f291072d6c5f80.svg",
+    "main.7f543c9e.css.map": "/static/css/main.7f543c9e.css.map",
+    "main.5531ab13.js.map": "/static/js/main.5531ab13.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d6870cfc.css",
-    "static/js/main.d4d600db.js"
+    "static/css/main.7f543c9e.css",
+    "static/js/main.5531ab13.js"
   ]
 }

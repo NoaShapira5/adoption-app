@@ -1,73 +1,44 @@
-import {FaSignInAlt, FaUser, FaPaw, FaSignOutAlt} from 'react-icons/fa'
-import {Link, useNavigate} from 'react-router-dom'
-import {useSelector, useDispatch} from 'react-redux'
-import {logout} from '../features/auth/authSlice'
+import {FaPaw} from 'react-icons/fa'
+import {Link} from 'react-router-dom'
+import {useSelector} from 'react-redux'
 import mainLogo from '../assets/mainLogo.png'
+import mainLogo2 from '../assets/mainLogo2.png'
+import {FaHome} from 'react-icons/fa'
 
 function Header() {
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
     const {user} = useSelector(state => state.auth)
-
-    const onLogout = () => {
-        dispatch(logout())
-        navigate('/')
-    }
-
-    const onRegister = () => {
-        navigate('/register')
-    }
 
   return (
     <header className='header'>
-        <div className='logo'>
-            <Link to='/'>
-                <img src={mainLogo} alt='אתר אימוץ' className='main-logo' />
-            </Link>     
+        <div className="logos">
+                <Link to='/' className='logo-right'>
+                    <img src={mainLogo} alt='אתר אימוץ' className='main-logo' />
+                </Link>     
+            
+                <Link to='/' className="logo-left">
+                    <img src={mainLogo2} alt='אתר אימוץ' className='main-logo2'/>
+                </Link> 
         </div>
-        <div className="left">
-            {user ? (
-                <>
-                    <ul className='buttons'>
-                        <li>
-                            <div className="btn2">
-                                <button onClick={onLogout}>
-                                    התנתקות&nbsp;
-                                    <FaSignOutAlt />
-                                </button>
-                            </div>
-                        </li>
-                        {user.isAdmin && (
-                        <li>
-                            <div className="btn2" onClick={onRegister}>
-                                <button>
-                                    רישום משתמש חדש&nbsp;<FaUser /> 
-                                </button>
-                            </div>
-                        </li>                            
-                        )}
-                    </ul>
-                    
-                    <div className="profile">
-                        <Link to='/profile' className='profile-text'>
-                            פרופיל&nbsp;&nbsp;<FaPaw />
-                        </Link>
-                    </div>
-                </>
+        <ul className='buttons'>
+            <li>
+            <a href="http://www.vet-dan.com/">
+                <button className="btn flex">
+                    <FaHome /> בחזרה לאתר השירותים הוטרינרים
+                </button>
+            </a>
+            </li>
 
-            ) : (
-                <>
-                    <ul>      
-                        <li>
-                            <Link to='/login'>
-                                התחברות&nbsp;<FaSignInAlt /> 
-                            </Link>
-                        </li>
-                    </ul>
-                </>
-            )}
+            {user && (
+            <div className="profile">
+                <Link to='/profile' className="profile-text">
+                    פרופיל&nbsp;&nbsp;<FaPaw />
+                </Link>
+            </div>
+        )} 
+        </ul>
+
         
-        </div>
+
     </header>
   )
 }
