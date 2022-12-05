@@ -226,8 +226,8 @@ form {
 }
 
 .profileHeader {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
   margin-bottom: 50px;
   padding: 0 20px;
 }

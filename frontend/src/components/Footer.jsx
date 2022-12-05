@@ -47,7 +47,7 @@ function Footer() {
                   <>
                       <ul>      
                           <li>
-                              <Link to='/login'>
+                              <Link to='/login' className='btn'>
                                   ניהול&nbsp;<FaSignInAlt /> 
                               </Link>
                           </li>

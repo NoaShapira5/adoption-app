@@ -40,7 +40,7 @@ function ListingsUser() {
   <>
     <header className="pageHeader">
         <BackButton />
-        <p className="listingText">כלבים שפרסמת לאימוץ</p>
+        <h1 className="listingText">כלבים שפרסמת לאימוץ</h1>
     </header>
     <ul className="listingsList">
       {listings?.length > 0 && listings.map((listing) => (

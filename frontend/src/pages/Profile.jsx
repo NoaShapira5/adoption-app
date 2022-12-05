@@ -43,9 +43,9 @@ function Profile() {
     <div className='profilePage'>
       <BackButton />
       <header className="profileHeader">
-        <p className="pageHeader">
+        <h1>
           הפרופיל שלי
-        </p>
+        </h1>
       </header>
       <main>
         <div className="profileDetailsHeader">

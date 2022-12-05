@@ -43,12 +43,12 @@ function CreateListing() {
     }
 
   return (
-    <div className="profilePage">
+    <div>
         <BackButton />
-        <header>
-            <p className="pageHeader">
+        <header className="pageHeader">
+            <h1>
                 פרסום כלב לאימוץ
-            </p>
+            </h1>
         </header>
         <main>
             <form onSubmit={onSubmit}>
