@@ -23,7 +23,7 @@ function Header() {
             <li>
             <a href="http://www.vet-dan.com/">
                 <button className="btn flex">
-                    <FaHome /> בחזרה לאתר השירותים הוטרינרים
+                    <FaHome /> חזרה לאתר השירותים הוטרינרים
                 </button>
             </a>
             </li>
