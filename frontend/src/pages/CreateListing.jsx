@@ -25,7 +25,7 @@ function CreateListing() {
             return
         }
         dispatch(createListing({name, gender, race, age, desc, images})).unwrap().then(() => {
-            navigate('/listings')
+            navigate('/my-listings')
             toast.success('הכלב פורסם בהצלחה')
         })
         .catch(toast.error)

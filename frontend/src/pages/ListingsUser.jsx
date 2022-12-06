@@ -6,17 +6,21 @@ import { getListingsUser, deleteListing } from "../features/listings/listingSlic
 import {toast} from 'react-toastify'
 import { useNavigate } from "react-router-dom"
 import BackButton from "../components/BackButton"
+import Paginate from "../components/Pagination"
+import { useSearchParams } from "react-router-dom"
 
 
 function ListingsUser() {
     const {listings} = useSelector(state => state.listings)
+    const [searchParams] = useSearchParams()
+    const page = searchParams.get('page') || 1
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    useEffect(() => {
-      dispatch(getListingsUser())
-    }, [dispatch])
+    // useEffect(() => {
+    //   dispatch(getListingsUser())
+    // }, [dispatch])
 
     const onDelete = (listingId) => {
       if(window.confirm('Are you sure you want to delete?')) {
@@ -30,10 +34,6 @@ function ListingsUser() {
 
     const onEdit = (listingId) => {
       navigate(`/edit-listing/${listingId}`)
-    }
-
-    if(!listings) {
-        return <Spinner />
     }
 
   return (
@@ -53,6 +53,7 @@ function ListingsUser() {
         />
       ))}
     </ul>
+    <Paginate page={page} />
   </>
   )
 }

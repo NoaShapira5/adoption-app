@@ -1,22 +1,13 @@
 import ListingItem from "../components/ListingItem"
-import { useSelector, useDispatch } from "react-redux"
-import Spinner from "../components/Spinner"
-import { useEffect } from "react"
-import { getListings } from "../features/listings/listingSlice"
+import { useSelector } from "react-redux"
 import whatsappLogo from '../assets/whatsappLogo.png'
+import Paginate from "../components/Pagination"
+import { useSearchParams } from "react-router-dom"
 
 function Home() {
     const {listings} = useSelector(state => state.listings)
-
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-      dispatch(getListings())
-    }, [dispatch])
-
-    if(!listings) {
-        return <Spinner />
-    }
+    const [searchParams] = useSearchParams()
+    const page = searchParams.get('page') || 1
 
   return (
   <>
@@ -37,6 +28,7 @@ function Home() {
         />
       ))}
     </ul>
+    <Paginate page={page}/>
   </>
   )
 }

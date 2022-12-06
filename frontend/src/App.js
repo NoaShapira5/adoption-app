@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import Home from './pages/Home';
@@ -22,7 +22,8 @@ function App() {
         <div className='container'>
           <Header />
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Navigate to='/listings' replace />} />
+            <Route path='/listings' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route 
             path='/register'
@@ -48,7 +49,7 @@ function App() {
             />
 
             <Route 
-            path='/listings'
+            path='/my-listings'
             element={<PrivateRoute>
                       <ListingsUser />
                     </PrivateRoute>}

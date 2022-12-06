@@ -84,7 +84,7 @@ function Profile() {
           <p>פרסם כלב לאימוץ</p>
           <FaArrowRight />
         </Link>
-        <Link to='/listings' className="createListing">
+        <Link to='/my-listings' className="createListing">
           <FaDog />
           <p>כלבים שפרסמת לאימוץ</p>
           <FaArrowRight />

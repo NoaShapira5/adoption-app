@@ -5,7 +5,9 @@ import { extractErrorMessage } from '../../utils'
 const initialState = {
     listings: null,
     listing: null,
-    isLoading: false
+    isLoading: false,
+    numberOfPages: null,
+    currentPage: 1
 }
 
 // Create new listing
@@ -19,9 +21,9 @@ export const createListing = createAsyncThunk('listing/create', async (listingDa
 })
 
 // get listings
-export const getListings = createAsyncThunk('listing/getAll', async (_, thunkAPI) => {
+export const getListings = createAsyncThunk('listing/getAll', async (page, thunkAPI) => {
     try {
-        return await listingService.getListings()
+        return await listingService.getListings(page)
     } catch (error) {
         return thunkAPI.rejectWithValue(extractErrorMessage(error))
     }
@@ -76,7 +78,9 @@ export const listingSlice = createSlice({
                 state.listing = null
             })
             .addCase(getListings.fulfilled, (state, action) => {
-                state.listings = action.payload
+                state.listings = action.payload.listings
+                state.numberOfPages = action.payload.numberOfPages
+                state.currentPage = action.payload.currentPage
             })
             .addCase(getListing.fulfilled, (state, action) => {
                 state.listing = action.payload
@@ -86,7 +90,9 @@ export const listingSlice = createSlice({
                 state.listings = null
             })
             .addCase(getListingsUser.fulfilled, (state, action) => {
-                state.listings = action.payload
+                state.listings = action.payload.listings
+                state.numberOfPages = action.payload.numberOfPages
+                state.currentPage = action.payload.currentPage
             })
             .addCase(deleteListing.fulfilled, (state, action) => {
                 state.listings = state.listings.filter(listing => listing._id  !== action.payload._id)

@@ -14,10 +14,14 @@ const getListingsUser = asyncHandler(async (req, res) => {
         res.status(401)
         throw new Error('User not found')
     }
+    const { page } = req.query
+    const LIMIT = 8
+    const startIndex = (Number(page) - 1) * LIMIT
+    const total = await Listing.countDocuments({user: req.user.id})
 
-    const listings = await Listing.find({user: req.user.id})
+    const listings = await Listing.find({user: req.user.id}).limit(LIMIT).skip(startIndex)
 
-    res.status(200).json(listings)
+    res.status(200).json({listings, currentPage: Number(page), numberOfPages: Math.ceil(total / LIMIT)})
 })
 
 // @desc Get listings
@@ -25,9 +29,14 @@ const getListingsUser = asyncHandler(async (req, res) => {
 // @access Public
 const getListings = asyncHandler(async (req, res) => {
 
-    const listings = await Listing.find({})
+    const { page } = req.query
+    const LIMIT = 8
+    const startIndex = (Number(page) - 1) * LIMIT
+    const total = await Listing.countDocuments({})
 
-    res.status(200).json(listings)
+    const listings = await Listing.find({}).limit(LIMIT).skip(startIndex)
+
+    res.status(200).json({listings, currentPage: Number(page), numberOfPages: Math.ceil(total / LIMIT)})
 })
 
 // @desc Get user listing

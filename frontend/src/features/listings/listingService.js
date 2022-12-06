@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/listings/'
+const API_URL = '/api/listings'
 
 // Create new listing
 const createListing = async (listingData, token) => {
@@ -13,16 +13,16 @@ const createListing = async (listingData, token) => {
     for(const image of listingData.images) {
         formData.append("images", image)
     }
-    const res = await axios.post(API_URL + 'upload', formData)
+    const res = await axios.post(API_URL + '/upload', formData)
     listingData.images = res.data.files
     const response = await axios.post(API_URL, listingData, config)
     return response.data
 }
 
 // Get all listings
-const getListings = async () => {
+const getListings = async (page) => {
 
-    const response = await axios.get(API_URL)
+    const response = await axios.get(API_URL + `?page=${page}`)
     return response.data
 }
 
@@ -33,14 +33,14 @@ const getListingsUser = async (token) => {
             Authorization: `Bearer ${token}`
         }
     }
-    const response = await axios.get(API_URL + 'my-listings', config)
+    const response = await axios.get(API_URL + '/my-listings', config)
     return response.data
 }
 
 // Get listing
 const getListing = async (listingId) => {
 
-    const response = await axios.get(API_URL + listingId)
+    const response = await axios.get(API_URL + '/' + listingId)
     return response.data
 }
 
@@ -51,7 +51,7 @@ const deleteListing = async (listingId, token) => {
             Authorization: `Bearer ${token}`
         }
     }
-    const response = await axios.delete(API_URL + listingId, config)
+    const response = await axios.delete(API_URL + '/' + listingId, config)
     return response.data
 }
 
@@ -66,9 +66,9 @@ const editListing = async (listing, token) => {
     for(const image of listing.images) {
         formData.append("images", image)
     }
-    const res = await axios.post(API_URL + 'upload', formData)
+    const res = await axios.post(API_URL + '/upload', formData)
     listing.images = res.data.files
-    const response = await axios.put(API_URL + listing._id, listing, config)
+    const response = await axios.put(API_URL + '/' + listing._id, listing, config)
     return response.data
 }
 
