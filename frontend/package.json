@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://adoption-dogs-app.vercel.app",
+  "homepage": ".",
   "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
