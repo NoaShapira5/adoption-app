@@ -421,8 +421,8 @@ form {
 }
 
 .categoryListingImg {
-  width: 30%;
-  height: 100px;
+  width: 25%;
+  height: 120px;
   border-radius: 1.5rem;
   object-fit: cover;
 }
