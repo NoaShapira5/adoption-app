@@ -1,12 +1,10 @@
 import ListingItem from "../components/ListingItem"
 import { useSelector, useDispatch } from "react-redux"
-import Spinner from "../components/Spinner"
-import { useEffect } from "react"
-import { getListingsUser, deleteListing } from "../features/listings/listingSlice"
+import {deleteListing } from "../features/listings/listingSlice"
 import {toast} from 'react-toastify'
 import { useNavigate } from "react-router-dom"
 import BackButton from "../components/BackButton"
-import Paginate from "../components/Pagination"
+import PaginationMyListings from "../components/PaginationMyListings"
 import { useSearchParams } from "react-router-dom"
 
 
@@ -17,10 +15,6 @@ function ListingsUser() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
-    // useEffect(() => {
-    //   dispatch(getListingsUser())
-    // }, [dispatch])
 
     const onDelete = (listingId) => {
       if(window.confirm('Are you sure you want to delete?')) {
@@ -53,7 +47,7 @@ function ListingsUser() {
         />
       ))}
     </ul>
-    <Paginate page={page} />
+    <PaginationMyListings page={page} />
   </>
   )
 }

@@ -58,7 +58,7 @@ export const deleteListing = createAsyncThunk('listing/delete', async (listingId
     }
 })
 
-// get listing
+// edit listing
 export const editListing = createAsyncThunk('listing/edit', async (listing, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
