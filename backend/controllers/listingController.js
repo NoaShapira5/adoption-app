@@ -89,13 +89,6 @@ const createListingUser = asyncHandler(async (req, res) => {
 // @route DELETE /api/listings/:id 
 // @access Private
 const deleteListingUser = asyncHandler(async (req, res) => {
-    // Get user using the id in the JWT
-    const user = await User.findById(req.user.id)
-
-    if(!user) {
-        res.status(401)
-        throw new Error('User not found')
-    }
 
     const listing = await Listing.findById(req.params.id)
 
@@ -104,10 +97,6 @@ const deleteListingUser = asyncHandler(async (req, res) => {
         throw new Error('Listing not found')
     }
 
-    if(listing.user.toString() !== req.user.id) {
-        res.status(401)
-        throw new Error('Not Authorized')
-    }
     await listing.remove()
 
     res.status(200).json(listing)
@@ -117,24 +106,12 @@ const deleteListingUser = asyncHandler(async (req, res) => {
 // @route PUT /api/listings/:id 
 // @access Private
 const updateListingUser = asyncHandler(async (req, res) => {
-    // Get user using the id in the JWT
-    const user = await User.findById(req.user.id)
-
-    if(!user) {
-        res.status(401)
-        throw new Error('User not found')
-    }
 
     const listing = await Listing.findById(req.params.id)
 
     if(!listing) {
         res.status(404)
         throw new Error('Listing not found')
-    }
-
-    if(listing.user.toString() !== req.user.id) {
-        res.status(401)
-        throw new Error('Not Authorized')
     }
 
     const updatedListing = await Listing.findByIdAndUpdate(req.params.id, req.body, {new: true})
