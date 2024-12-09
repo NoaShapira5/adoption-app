@@ -35,11 +35,14 @@ function Listing() {
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         pagination={{clickable: true}}
         navigation
-        scrollbar={{dragable: true}}>
+        scrollbar={{draggable: true}}>
             {listing.images?.length > 0 && listing.images.map((url, index) => (
                 <SwiperSlide key={index}>
-                    <div style={{background: `url(${url}) center no-repeat`,backgroundSize: 'contain', minHeight: "20rem"}} className="swiperSlideDiv"></div>
-                </SwiperSlide>
+      <img
+        src={url}
+        alt={`Slide ${index + 1}`}
+        style={{ width: '100%', height: '20rem', objectFit: 'contain' }}
+      />                </SwiperSlide>
             ))}
         </Swiper>
         <div className="copyLinkDiv" onClick={() => {
