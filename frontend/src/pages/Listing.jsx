@@ -42,7 +42,7 @@ function Listing() {
                     src={url}
                     alt={`Slide ${index + 1}`}
                     style={{ width: '100%', height: '20rem', objectFit: 'contain' }}
-                    />                
+                    \/>                
                 </SwiperSlide>
             ))}
         </Swiper>
