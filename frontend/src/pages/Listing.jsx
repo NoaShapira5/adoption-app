@@ -38,11 +38,12 @@ function Listing() {
         scrollbar={{draggable: true}}>
             {listing.images?.length > 0 && listing.images.map((url, index) => (
                 <SwiperSlide key={index}>
-                    <img
+                    {/* <img
                     src={url}
                     alt={`Slide ${index + 1}`}
                     style={{ width: '100%', height: '20rem', objectFit: 'contain' }}
-                    \/>                
+                    />                 */}
+                    test
                 </SwiperSlide>
             ))}
         </Swiper>
